@@ -24,7 +24,7 @@ fi
 pip freeze > requirements.txt
 
 # Cria o arquivo Dockerfile
-echo -e "FROM python:3.8\n\nWORKDIR /app\n\nCOPY requirements.txt ./\n\nRUN pip install --no-cache-dir -r requirements.txt\n\nCOPY . /app\n\nCMD [\"python\", \"seu_arquivo_principal.py\"]" > Dockerfile
+echo -e "FROM python:3.8\n\nWORKDIR /app\n\nCOPY requirements.txt ./\n\nRUN pip install --no-cache-dir -r requirements.txt\n\nCOPY . /app\n\nCMD [\"python\", \"app.py\"]" > Dockerfile
 
 # Constrói a imagem Docker
 docker build -t clarke .
