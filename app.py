@@ -8,6 +8,8 @@ from flask_cors import CORS
 from hooks.jwt_callbacks import jwt
 import os
 
+
+
 load_dotenv()
 
 app = Flask(__name__)
@@ -23,7 +25,7 @@ from models.models import User
 with app.app_context():
     db.create_all()
 
-from routes.public_routes import public_routes
+from routes import public_routes
 from routes.private_routes import private_routes
 
 app.register_blueprint(public_routes)
