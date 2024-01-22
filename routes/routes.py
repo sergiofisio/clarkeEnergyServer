@@ -94,7 +94,7 @@ def get_all_users():
     output = []
     print(g.user)
     for user in users:
-        user_data = {'nome': user.name, 'email': user.email}
+        user_data = {'nome': user.nome, 'email': user.email}
         output.append(user_data)
     return jsonify({'users': output}), 200
 

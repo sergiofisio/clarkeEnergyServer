@@ -10,10 +10,9 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 86400
-app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
-app.env = 'development'
+app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY')
 CORS(app)
 db = SQLAlchemy(app)
 
@@ -27,5 +26,4 @@ app.register_blueprint(routes_blueprint)
 
 @app.route('/')
 def hello_world():
-    print('Hello, World!')
     return 'Hello, World!'
