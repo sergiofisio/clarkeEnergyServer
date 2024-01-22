@@ -3,4 +3,4 @@ WORKDIR /code
 COPY . /code
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:8000"]
