@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: nome-do-seu-app
+    env: python
+    build:
+      cmd: pip install -r requirements.txt && python app.py
+    envVars:
+      - key: JWT_SECRET_KEY
+        fromShell: echo $JWT_SECRET_KEY
+      - key: SQLALCHEMY_DATABASE_URI
+        fromShell: echo $SQLALCHEMY_DATABASE_URI
